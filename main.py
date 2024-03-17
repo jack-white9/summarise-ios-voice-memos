@@ -38,6 +38,9 @@ class AI:
 
 if __name__ == "__main__":
     ai = AI()
-    transcript = ai.transcribe("voice_memo.m4a")
-    summary = ai.summarise(transcript)
-    print(summary)
+
+    for file in os.listdir("recordings/"):
+        if file.endswith(".m4a"):
+            transcript = ai.transcribe(file)
+            summary = ai.summarise(transcript)
+            print(summary)
